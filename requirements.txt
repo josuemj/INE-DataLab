@@ -1,0 +1,10 @@
+numpy
+scikit-learn
+notebook
+pandas
+scipy
+matplotlib
+seaborn
+tabulate
+sklearn.neighbors 
+pyclustertend
