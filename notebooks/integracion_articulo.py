@@ -2,16 +2,56 @@
 
 
 # %%
+# Standard library imports
+import random
+from collections import defaultdict
+
+# Data manipulation
 import pandas as pd
 import numpy as np
+
+# Visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
+# Statistics
+import statsmodels.api as sm
+import statsmodels.stats.diagnostic as smd
+import scipy.stats as stats
+
+# Scikit-learn imports
+from sklearn import datasets, set_config
+from sklearn.preprocessing import (
+    LabelEncoder, StandardScaler, OneHotEncoder, LabelBinarizer
+)
+from sklearn.model_selection import (
+    train_test_split, cross_val_score, StratifiedKFold, 
+    GridSearchCV, learning_curve, cross_validate
+)
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import (
+    accuracy_score, classification_report, confusion_matrix,
+    precision_score, recall_score, f1_score, make_scorer,
+    roc_curve, auc, RocCurveDisplay
+)
+from sklearn.svm import LinearSVC, SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline, make_pipeline
+from sklearn.compose import (
+    ColumnTransformer, make_column_selector as selector
+)
+
+# Imbalanced-learn
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.pipeline import Pipeline as ImbPipeline
+
+# Other
+import joblib
+
+# Configure sklearn display
+set_config(display='diagram')
 
 df = pd.read_csv('../../data/Accidentes_2013_2023.csv')
 
